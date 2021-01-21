@@ -145,6 +145,8 @@ namespace IdentityServerHost.Quickstart.UI
             var result = await HttpContext.AuthenticateAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
             if (result?.Succeeded != true)
             {
+                _logger.LogDebug($"result.Failure: {result?.Failure};");
+                _logger.LogDebug($"result.None: {result?.None};");
                 throw new Exception("External authentication error2");
             }
 
